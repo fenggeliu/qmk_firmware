@@ -39,11 +39,11 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   //┌────────┬────────┬────────┬────────┬────────┬────────┐                          ┌────────┬────────┬────────┬────────┬────────┬────────┐
      KC_F12,  KC_F1,   KC_F2,   KC_F3,   KC_F4,   KC_F5,                                      KC_F6,   KC_F7,   KC_F8,   KC_F9,   KC_F10,  KC_F11,
   //├────────┼────────┼────────┼────────┼────────┼────────┤                          ├────────┼────────┼────────┼────────┼────────┼────────┤
-     _______,   RESET,  KC_WHOM,  KC_WSCH,  KC_BRID,  KC_BRIU,                              KC_MUTE,  KC_VOLD,  KC_VOLU,  KC_INS,  KC_DEL,  KC_EQL,
+     RESET,   RGB_M_K,  KC_WHOM,  KC_WSCH,  KC_BRID,  KC_BRIU,                              KC_MUTE,  KC_VOLD,  KC_VOLU,  KC_INS,  KC_DEL,  KC_EQL,
   //├────────┼────────┼────────┼────────┼────────┼────────┤                          ├────────┼────────┼────────┼────────┼────────┼────────┤
-    _______, BL_TOGG, BL_BRTG, BL_STEP, BL_DEC, BL_INC,                                  KC_MPLY,  KC_MPRV,  KC_MNXT,  KC_HOME,  KC_END,  KC_BSLS,
+    _______, RGB_M_B, RGB_HUD, RGB_HUI, RGB_SAD, RGB_SAI,                                  KC_MPLY,  KC_MPRV,  KC_MNXT,  KC_HOME,  KC_END,  KC_BSLS,
   //├────────┼────────┼────────┼────────┼────────┼────────┼────────┐        ┌────────┼────────┼────────┼────────┼────────┼────────┼────────┤
-    _______, RGB_TOG, RGB_RMOD, RGB_MOD, RGB_VAD, RGB_VAI,  _______,              _______,  KC_PSCR,  KC_SLCK,  KC_NLCK,  KC_PGUP,  KC_PGDN,  _______,
+    _______, RGB_TOG, RGB_RMOD, RGB_MOD, RGB_VAD, RGB_VAI,  _______,              _______,  KC_CAPS,  KC_SLCK,  KC_NLCK,  KC_PGUP,  KC_PGDN,  _______,
   //└────────┴────────┴────────┴───┬────┴───┬────┴───┬────┴───┬────┘        └───┬────┴───┬────┴───┬────┴───┬────┴────────┴────────┴────────┘
                                     _______, _______, KC_APP,                   KC_RGUI, _______, _______
                                 // └────────┴────────┴────────┘                 └────────┴────────┴────────┘
@@ -53,16 +53,16 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 void encoder_update_user(uint8_t index, bool clockwise) {
     if (index == 0) {
         if (clockwise) {
-            tap_code(KC_RIGHT);
+            tap_code(KC_DOWN);
         } else {
-            tap_code(KC_LEFT);
+            tap_code(KC_UP);
         }
     }
     else if (index == 1) {
         if (clockwise) {
-            tap_code(KC_DOWN);
+            tap_code(KC_RIGHT);
         } else {
-            tap_code(KC_UP);
+            tap_code(KC_LEFT);
         }
     }
 }
